@@ -1,0 +1,118 @@
+.content {
+    padding: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    margin-bottom: 20px;
+    background: #4CAF50;
+}
+
+
+.responsibilities-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.responsibilities-table th, .responsibilities-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+#createModal .modal-content input, #createModal .modal-content button, #createModal .modal-content label,
+#editModal .modal-content input, #editModal .modal-content button, #editModal .modal-content label {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+#editModal .modal-content input, #createModal .modal-content input{
+    padding: 10px;
+    outline: none;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+
+.modal-content input:focus{
+    outline: 1Px solid green;
+}
+
+.cancel-btn-group-delete {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.confirm-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #007BFF !important;
+}
+
+.delete-btn {
+    background-color: #c82333 !important;
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;
+}
