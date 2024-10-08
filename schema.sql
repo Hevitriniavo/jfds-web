@@ -8,6 +8,14 @@ CREATE TABLE roles
     name VARCHAR(255) NOT NULL
 );
 
+INSERT INTO roles (name) VALUES
+     ('Mpandrindra'),
+     ('Faritra'),
+     ('Fikambanana Masina'),
+     ('Vaomieran’asa'),
+     ('Mpikambana'),
+     ('Mpikambana Tsotra');
+
 CREATE TABLE regions
 (
     id   INT AUTO_INCREMENT PRIMARY KEY,
@@ -71,6 +79,14 @@ CREATE TABLE users
     FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE SET NULL,
     FOREIGN KEY (responsibility_id) REFERENCES responsibilities (id) ON DELETE SET NULL
 );
+--- admin
+INSERT INTO users (role_id, first_name, last_name, cin, photo, qr_code, birth_date, address, username, gender, apv, responsibility_id)
+VALUES
+    (1, 'Alice', 'Dupont', 'CN123456', 'alice_photo.jpg', 'qr_code_alice.png', '1985-06-15', '123 Main St, Paris', 'alice.dupont', 'Female', 'APV123', NULL);
+-- user
+INSERT INTO users (role_id, first_name, last_name, cin, photo, qr_code, birth_date, address, username, gender, apv, responsibility_id)
+VALUES
+    (6, 'Bob', 'Martin', 'CN654321', 'bob_photo.jpg', 'qr_code_bob.png', '1990-03-22', '456 Elm St, Lyon', 'user.bob', 'Male', 'APV456', NULL);
 
 CREATE TABLE members
 (

@@ -29,7 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("updateModal").style.display = "none";
     };
 
-    document.getElementById("closeDeleteModal").onclick = function() {
-        document.getElementById("deleteModal").style.display = "none";
-    };
+    document.querySelectorAll(".closeDeleteModal").forEach(btn => {
+    btn.onclick = function() {
+            document.getElementById("deleteModal").style.display = "none";
+        }
+    });
 });

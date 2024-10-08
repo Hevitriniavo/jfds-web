@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     closeUpdateModal.addEventListener('click', () => updateModal.style.display = 'none');
 
     const deleteModal = document.getElementById('deleteModal');
-    const closeDeleteModal = document.getElementById('closeDeleteModal');
+    const closeDeleteModal = document.querySelectorAll('.closeDeleteModal');
     const deleteForm = document.getElementById('deleteForm');
 
     document.querySelectorAll('.deleteButton').forEach(button => {
@@ -38,5 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    closeDeleteModal.addEventListener('click', () => deleteModal.style.display = 'none');
+    closeDeleteModal.forEach((cls) => {
+        cls.addEventListener('click', () => deleteModal.style.display = 'none');
+    });
 });

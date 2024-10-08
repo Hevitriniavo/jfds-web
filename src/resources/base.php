@@ -9,6 +9,23 @@
     <link rel="stylesheet" href="<?= pubUrl("assets/global.css") ?>">
     <link rel="stylesheet" href="<?= pubUrl("assets/bootstrap/css/bootstrap.min.css") ?>">
 
+    <!-- Favicon -->
+    <link href="<?= path("img/favicon.ico") ?>" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="<?= path("lib/owlcarousel/assets/owl.carousel.min.css") ?>" rel="stylesheet">
+    <link href="<?= path("lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css") ?>" rel="stylesheet" />
+
+    <link href="<?= path("css/bootstrap.min.css") ?>" rel="stylesheet">
+
+    <link href="<?= path("css/style.css") ?>" rel="stylesheet">
+
     <style>
         <?= $style ?>
     </style>
@@ -16,18 +33,23 @@
 <body>
 <?= include_component("flash-message") ?>
 <?= $content ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script src="<?= pubUrl("assets/global.js") ?>"></script>
-<script src="<?= pubUrl("assets/fullcalendar/index.global.min.js") ?>"></script>
-<script src="<?= pubUrl("assets/chartjs/chart.js") ?>"></script>
-<script src="<?= pubUrl("assets/chartjs/chart.umd.js") ?>"></script>
-<script src="<?= pubUrl("assets/chartjs/helpers.js") ?>"></script>
-<script src="<?= pubUrl("assets/bootstrap/js/bootstrap.bundle.min.js" ) ?>"></script>
 
 <script>
     <?= $script ?>
 </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?= path("lib/chart/chart.min.js") ?>"></script>
+<script src="<?= path("lib/easing/easing.min.js") ?>"></script>
+<script src="<?= path("lib/waypoints/waypoints.min.js") ?>"></script>
+<script src="<?= path("lib/owlcarousel/owl.carousel.min.js") ?>"></script>
+<script src="<?= path("lib/tempusdominus/js/moment.min.js") ?>"></script>
+<script src="<?= path("lib/tempusdominus/js/moment-timezone.min.js") ?>"></script>
+<script src="<?= path("lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js") ?>"></script>
+<script src="<?= path("js/main.js") ?>"></script>
+<script src="<?= path("assets/fullcalendar/index.global.min.js") ?>"></script>
+<script src="<?= path("assets/global.js") ?>"></script>
 
 </body>
 </html>

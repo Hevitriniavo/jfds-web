@@ -1,88 +1,104 @@
-<?= include_component("sidebar") ?>
-<div class="content">
-    <h1>Associations</h1>
+<div class="container-xxl position-relative bg-white d-flex p-0">
+    <?= include_component("the-sidebar") ?>
 
-    <button id="openCreateModal" class="btn">Add Association</button>
+    <div class="content">
+        <?= include_component("navbar") ?>
 
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php if (empty($associations)): ?>
-            <tr>
-                <td colspan="4" class="no-data">No associations found.</td>
-            </tr>
-        <?php else: ?>
-            <?php foreach ($associations as $association): ?>
-                <tr data-id="<?= $association['id'] ?>" data-code="<?= $association['code'] ?>" data-name="<?= $association['name'] ?>">
-                    <td><?= $association['id'] ?></td>
-                    <td><?= $association['code'] ?></td>
-                    <td><?= $association['name'] ?></td>
-                    <td>
-                        <button class="editButton btn">Edit</button>
-                        <button class="deleteButton btn">Delete</button>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        </tbody>
-    </table>
 
-    <!-- Create Modal -->
-    <div id="createModal" class="modal">
-        <div class="modal-content">
-            <span id="closeCreateModal" class="close">&times;</span>
-            <h2>Create Association</h2>
-            <form id="createForm" action="<?= path('associations/create') ?>" method="POST">
-                <label for="code">Code</label>
-                <input type="text" id="code" name="code" placeholder="Code" required>
+        <div class="container mx-auto mt-4">
+                <h1>Fikambanana Masina</h1>
 
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Name" required>
+                <button id="openCreateModal" class="btn">Hamrona Fikambanana Masina</button>
 
-                <button type="submit" class="btn">Create</button>
-            </form>
-        </div>
-    </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kaody</th>
+                        <th>Anarara</th>
+                        <th>Hetsika</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if (empty($associations)): ?>
+                        <tr>
+                            <td colspan="4" class="no-data">Tsy misy fikambanana masina.</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach ($associations as $association): ?>
+                            <tr data-id="<?= $association['id'] ?>" data-code="<?= $association['code'] ?>" data-name="<?= $association['name'] ?>">
+                                <td><?= $association['id'] ?></td>
+                                <td><?= $association['code'] ?></td>
+                                <td><?= $association['name'] ?></td>
+                                <td>
+                                    <button class="editButton btn">Manova</button>
+                                    <button class="deleteButton btn">Mamafa</button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
 
-    <!-- Update Modal -->
-    <div id="updateModal" class="modal">
-        <div class="modal-content">
-            <span id="closeUpdateModal" class="close">&times;</span>
-            <h2>Update Association</h2>
-            <form id="updateForm" action="<?= path('associations/update') ?>" method="POST">
-                <input type="hidden" id="updateId" name="id">
+                <!-- Create Modal -->
+                <div id="createModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeCreateModal" class="close">&times;</span>
+                        <h2>Famoronana Fikambanana Masina</h2>
+                        <form id="createForm" action="<?= path('associations/create') ?>" method="POST">
+                            <label for="code">Kaody</label>
+                            <input type="text" id="code" name="code" placeholder="Kaody" required>
 
-                <label for="updateCode">Code</label>
-                <input type="text" name="code" id="updateCode" placeholder="Code" required>
+                            <label for="name">Anarana</label>
+                            <input type="text" id="name" name="name" placeholder="Anarana" required>
 
-                <label for="updateName">Name</label>
-                <input type="text" name="name" id="updateName" placeholder="Name" required>
-
-                <button type="submit" class="btn">Update</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Delete Modal -->
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <span id="closeDeleteModal" class="close">&times;</span>
-            <h2>Delete Association</h2>
-            <p>Are you sure you want to delete this association?</p>
-            <form id="deleteForm" action="<?= path('associations/delete') ?>" method="POST">
-                <input type="hidden" id="deleteId" name="id">
-                <div class="cancel-btn-group-delete">
-                    <button type="submit" class="confirm-btn">Yes, Delete</button>
-                    <button type="button" class="cancel-btn">Cancel</button>
+                            <button type="submit" class="btn">Hoforonina</button>
+                        </form>
+                    </div>
                 </div>
-            </form>
-        </div>
+
+                <!-- Update Modal -->
+                <div id="updateModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeUpdateModal" class="close">&times;</span>
+                        <h2>Fanovana Fikambanana Masina</h2>
+                        <form id="updateForm" action="<?= path('associations/update') ?>" method="POST">
+                            <input type="hidden" id="updateId" name="id">
+
+                            <label for="updateCode">Kaody</label>
+                            <input type="text" name="code" id="updateCode" placeholder="Kaody" required>
+
+                            <label for="updateName">Name</label>
+                            <input type="text" name="name" id="updateName" placeholder="Anarana" required>
+
+                            <button type="submit" class="btn">Hovaina</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Delete Modal -->
+                <div id="deleteModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeDeleteModal" class="close">&times;</span>
+                        <h2>Fanenkena Famafana</h2>
+                        <p>Tena ho fafainao marina ve ny fikambanana masina?</p>
+                        <form id="deleteForm" action="<?= path('associations/delete') ?>" method="POST">
+                            <input type="hidden" id="deleteId" name="id">
+                            <div class="cancel-btn-group-delete">
+                                <button type="submit" class="confirm-btn">Eny</button>
+                                <button type="button" class="cancel-btn">Tsia</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        <footer>
+            <p>&copy; <?= date("Y") ?> My Application. All rights reserved.</p>
+        </footer>
+
     </div>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 </div>
+

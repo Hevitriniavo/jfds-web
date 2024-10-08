@@ -41,7 +41,7 @@ class Router
         }
 
         http_response_code(404);
-        echo "404 Not Found";
+        echo views("404.view");
     }
 
     private function runMiddlewares(array $middlewares): ?string
