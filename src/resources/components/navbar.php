@@ -21,7 +21,9 @@ $photo = !empty($photo) ? $photo : "default.jpg";
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                 <a href="#" class="dropdown-item">Profile</a>
-                <a href="<?= path("/logout") ?>" class="dropdown-item">Log Out</a>
+                <form method="post" action="<?= path("/logout") ?>">
+                    <button  class="dropdown-item">Log Out</button>
+                </form>
             </div>
         </div>
     </div>

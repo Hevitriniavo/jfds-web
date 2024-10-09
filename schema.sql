@@ -70,7 +70,6 @@ CREATE TABLE users
     qr_code           VARCHAR(200),
     birth_date        DATE         NOT NULL,
     address           VARCHAR(255) NOT NULL,
-    username          VARCHAR(250) UNIQUE,
     gender            VARCHAR(110) NOT NULL,
     apv               VARCHAR(100),
     responsibility_id INT,

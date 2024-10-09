@@ -1,33 +1,101 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const deleteModal = document.getElementById('deleteModal');
-    const deleteIdInput = document.getElementById('deleteId');
-    const deletePhotoInput = document.getElementById('deletePhoto');
-    const closeModalBtn = document.querySelector('.close-btn');
-    const cancelBtn = document.querySelector('.cancel-btn');
+document.addEventListener("DOMContentLoaded", function() {
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const row = this.closest('tr');
+            document.getElementById('editUserId').value = row.dataset.id;
+            document.getElementById('editFirstName').value = row.dataset.first_name;
+            document.getElementById('editLastName').value = row.dataset.last_name;
+            document.getElementById('editCin').value = row.dataset.cin;
+            document.getElementById('editBirthDate').value = row.dataset.birth_date;
+            document.getElementById('editApv').value = row.dataset.apv;
+            document.getElementById('editAddress').value = row.dataset.address;
+            document.getElementById('editGender').value = row.dataset.gender;
+            document.getElementById('editResponsibility').value = row.dataset.responsibility;
+        });
+    })
 
-    // Open delete modal
-    document.querySelectorAll('.delete-btn').forEach(button => {
-        button.addEventListener('click', (event) => {
-            deleteIdInput.value = event.target.closest('.table-row').getAttribute('data-id');
-            deletePhotoInput.value = event.target.closest('.table-row').getAttribute('data-photo');
-            deleteModal.style.display = 'block';
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.stopPropagation();
+            const row = this.closest('tr');
+            document.getElementById('deleteUserId').value = row.dataset.id;
+            document.getElementById('deletePhotoId').value = row.dataset.photo;
         });
     });
 
-    // Close modal when the close button is clicked
-    closeModalBtn.addEventListener('click', () => {
-        deleteModal.style.display = 'none';
+    const addSacramentButtons = document.querySelectorAll('.add-sacrament-btn');
+
+    addSacramentButtons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            document.getElementById('sacramentUserId').value = this.getAttribute('data-user-id');
+            event.stopPropagation();
+        });
     });
 
-    // Close modal when the cancel button is clicked
-    cancelBtn.addEventListener('click', () => {
-        deleteModal.style.display = 'none';
+    const modal = document.getElementById('addSacramentModal');
+    modal.addEventListener('click', function (event) {
+        event.stopPropagation();
     });
-
-    // Close modal when clicking outside of the modal content
-    window.addEventListener('click', (event) => {
-        if (event.target === deleteModal) {
-            deleteModal.style.display = 'none';
-        }
-    });
+    initModalDetail()
 });
+
+
+function initModalDetail(){
+    const tableRows = document.querySelectorAll('#table-row');
+
+    const detailModal = document.getElementById('detailModal');
+    const userIdElem = document.getElementById('userId');
+    const userNameElem = document.getElementById('userName');
+    const userLastNameElem = document.getElementById('userLastName');
+    const userCinElem = document.getElementById('userCin');
+    const userBirthDateElem = document.getElementById('userBirthDate');
+    const userAddressElem = document.getElementById('userAddress');
+    const userGenderElem = document.getElementById('userGender');
+    const userApvElem = document.getElementById('userApv');
+    const userQrCodeElem = document.getElementById('userQrCode');
+    const userRoleElem = document.getElementById('userRole');
+    const userResponsibilityElem = document.getElementById('userResponsibility');
+    const userPhotoElem = document.getElementById('userPhoto');
+
+    tableRows.forEach(row => {
+
+        row.addEventListener('click', function (event) {
+
+            if (event.target.classList.contains('edit-btn') || event.target.classList.contains('delete-btn')) {
+                return;
+            }
+            const userId = this.getAttribute('data-id');
+            const firstName = this.getAttribute('data-first_name');
+            const lastName = this.getAttribute('data-last_name');
+            const cin = this.getAttribute('data-cin');
+            const birthDate = this.getAttribute('data-birth_date');
+            const address = this.getAttribute('data-address');
+            const gender = this.getAttribute('data-gender');
+            const apv = this.getAttribute('data-apv');
+            const qrCode = this.getAttribute('data-qr_code');
+            const role = this.getAttribute('data-role');
+            const responsibility = this.getAttribute('data-responsibility');
+            const photo = this.getAttribute('data-photo');
+
+            userIdElem.textContent = userId;
+            userNameElem.textContent = firstName;
+            userLastNameElem.textContent = lastName;
+            userCinElem.textContent = cin;
+            userBirthDateElem.textContent = birthDate;
+            userAddressElem.textContent = address;
+            userGenderElem.textContent = gender;
+            userApvElem.textContent = apv;
+            userQrCodeElem.textContent = qrCode;
+            userRoleElem.textContent = role;
+            userResponsibilityElem.textContent = responsibility;
+            userPhotoElem.src = "assets/" + photo || "assets/" + 'default_photo.jpg';
+
+            const modal = new bootstrap.Modal(detailModal);
+            modal.show();
+        });
+    });
+
+}

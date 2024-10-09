@@ -21,11 +21,9 @@ use App\Controller\SacramentController;
 use App\Controller\StatisticController;
 use App\Controller\TicketController;
 use App\Controller\UpdateRoleAndResponsibility;
-use App\Controller\UserCreateController;
-use App\Controller\UserListController;
+use App\Controller\UserController;
 use App\Controller\UserResponsibilityHistoryController;
 use App\Controller\UserSacramentController;
-use App\Controller\UserUpdateController;
 use App\Middleware\AuthMiddleware;
 
 return [
@@ -66,21 +64,17 @@ return [
     ['path' => "/cash-registers/update", "method" => "POST", "controller" => [CashRegisterController::class, "update"]],
     ['path' => "/cash-registers/delete", "method" => "POST", "controller" => [CashRegisterController::class, "delete"]],
 
-    ['path' => "/users", "method" => "GET", "controller" => [UserListController::class, "index"]],
-    ['path' => "/user", "method" => "GET", "controller" => [UserListController::class, "find"]],
-
-    ['path' => "/users/create/form", "method" => "GET", "controller" => [UserCreateController::class, "showForm"]],
-    ['path' => "/users/create", "method" => "POST", "controller" => [UserCreateController::class, "create"]],
-
-    ['path' => "/users/update/form", "method" => "GET", "controller" => [UserUpdateController::class, "showForm"]],
-    ['path' => "/users/update", "method" => "POST", "controller" => [UserUpdateController::class, "update"]],
-
-    ['path' => "/users/delete", "method" => "POST", "controller" => [UserListController::class, "delete"]],
+    ['path' => "/users", "method" => "GET", "controller" => [UserController::class, "index"]],
+    ['path' => "/user", "method" => "GET", "controller" => [UserController::class, "find"]],
+    ['path' => "/users/create", "method" => "POST", "controller" => [UserController::class, "create"]],
+    ['path' => "/users/update", "method" => "POST", "controller" => [UserController::class, "update"]],
+    ['path' => "/users/delete", "method" => "POST", "controller" => [UserController::class, "delete"]],
 
     ['path' => "/members", "method" => "GET", "controller" => [MemberController::class, "index"]],
     ['path' => "/members/create", "method" => "POST", "controller" => [MemberController::class, "create"]],
     ['path' => "/members/update", "method" => "POST", "controller" => [MemberController::class, "update"]],
     ['path' => "/members/delete", "method" => "POST", "controller" => [MemberController::class, "delete"]],
+
 
     ['path' => "/activities", "method" => "GET", "controller" => [ActivityController::class, "index"]],
     ['path' => "/activities/create", "method" => "POST", "controller" => [ActivityController::class, "create"]],

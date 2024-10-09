@@ -6,8 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kotolika</title>
-    <link rel="stylesheet" href="<?= pubUrl("assets/global.css") ?>">
-    <link rel="stylesheet" href="<?= pubUrl("assets/bootstrap/css/bootstrap.min.css") ?>">
+
 
     <!-- Favicon -->
     <link href="<?= path("img/favicon.ico") ?>" rel="icon">
@@ -22,9 +21,10 @@
     <link href="<?= path("lib/owlcarousel/assets/owl.carousel.min.css") ?>" rel="stylesheet">
     <link href="<?= path("lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css") ?>" rel="stylesheet" />
 
-    <link href="<?= path("css/bootstrap.min.css") ?>" rel="stylesheet">
-
     <link href="<?= path("css/style.css") ?>" rel="stylesheet">
+    <link href="<?= path("css/bootstrap.min.css") ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?= pubUrl("assets/global.css") ?>">
+    <link rel="stylesheet" href="<?= pubUrl("assets/bootstrap/css/bootstrap.min.css") ?>">
 
     <style>
         <?= $style ?>
@@ -48,8 +48,8 @@
 <script src="<?= path("lib/tempusdominus/js/moment-timezone.min.js") ?>"></script>
 <script src="<?= path("lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js") ?>"></script>
 <script src="<?= path("js/main.js") ?>"></script>
-<script src="<?= path("assets/fullcalendar/index.global.min.js") ?>"></script>
 <script src="<?= path("assets/global.js") ?>"></script>
+<script src="<?= path("assets/fullcalendar/index.global.min.js") ?>"></script>
 
 </body>
 </html>

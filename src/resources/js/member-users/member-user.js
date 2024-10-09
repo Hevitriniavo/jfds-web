@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-        document.getElementById('attachBtn').onclick = function() {
-        document.getElementById('attachModal').style.display = 'block';
-    }
+
 
         document.querySelectorAll('.detach-btn').forEach(function(button) {
         button.onclick = function () {
@@ -24,10 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
         window.onclick = function(event) {
-        const attachModal = document.getElementById('attachModal');
         const detachModal = document.getElementById('detachModal');
-        if (event.target === attachModal || event.target === detachModal) {
-        attachModal.style.display = 'none';
+        if (event.target === detachModal) {
         detachModal.style.display = 'none';
     }
     }

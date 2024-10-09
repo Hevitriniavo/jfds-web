@@ -1,56 +1,34 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const createModal = document.getElementById('createModal');
-    const editModal = document.getElementById('editModal');
-    const deleteModal = document.getElementById('deleteModal');
+document.addEventListener('DOMContentLoaded', function () {
+    const createModal = new bootstrap.Modal(document.getElementById('createModal'));
+    const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+
     const createBtn = document.getElementById('createBtn');
-    const closeBtns = document.querySelectorAll('.close-btn');
-    const tableRows = document.querySelectorAll('.table-row');
-
-    createBtn.addEventListener('click', () => {
-        createModal.style.display = 'block';
+    createBtn.addEventListener('click', function () {
+        createModal.show();
     });
 
-    tableRows.forEach(row => {
-        const editBtn = row.querySelector('.edit-btn');
-        editBtn.addEventListener('click', () => {
-            const id = row.dataset.id;
-            const region = row.dataset.region;
-            const name = row.dataset.name;
-            const association = row.dataset.association;
-            const committee = row.dataset.committee;
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const row = this.closest('tr');
+            document.getElementById('editId').value = row.dataset.id;
+            document.getElementById('editName').value = row.dataset.name;
+            document.getElementById('editRegion').value = row.dataset.region;
+            document.getElementById('editAssociation').value = row.dataset.association;
+            document.getElementById('editCommittee').value = row.dataset.committee;
 
-            document.getElementById('editId').value = id;
-            document.getElementById('editName').value = name;
-            document.getElementById('editRegion').value = region;
-            document.getElementById('editAssociation').value = association;
-            document.getElementById('editCommittee').value = committee;
-
-            editModal.style.display = 'block';
+            editModal.show();
         });
     });
 
-    tableRows.forEach(row => {
-        const deleteBtn = row.querySelector('.delete-btn');
-        deleteBtn.addEventListener('click', () => {
-            const id = row.dataset.id;
-            document.getElementById('deleteId').value = id;
-            deleteModal.style.display = 'block';
-        });
-    });
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const row = this.closest('tr');
+            document.getElementById('deleteId').value = row.dataset.id;
 
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            createModal.style.display = 'none';
-            editModal.style.display = 'none';
-            deleteModal.style.display = 'none';
+            deleteModal.show();
         });
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === createModal || event.target === editModal || event.target === deleteModal) {
-            createModal.style.display = 'none';
-            editModal.style.display = 'none';
-            deleteModal.style.display = 'none';
-        }
     });
 });
